@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #050816;
+  --bg-2: #0b1230;
+  --accent: #38bdf8;
+  --accent-2: #818cf8;
+  --text: #e6edf7;
+  --muted: #94a3b8;
+  --danger: #f87171;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Only <html> gets the background so the fixed particle layer behind the content stays visible. */
+html {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
